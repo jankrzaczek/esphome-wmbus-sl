@@ -302,8 +302,10 @@ namespace wmbus {
 #endif
   }
 #endif
-  
   void WMBusComponent::send_to_clients(WMbusFrame &mbus_data) {
+  // Wyłączone: brak obsługi WiFiClient w ESP-IDF
+}
+  void WMBusComponent::send_to_clients_org(WMbusFrame &mbus_data) {
     for (auto & client : this->clients_) {
       switch (client.format) {
         case FORMAT_HEX:
